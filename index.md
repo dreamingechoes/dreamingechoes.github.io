@@ -1,9 +1,7 @@
 ---
 layout: home
 excerpt: "dreamingechoes"
-tags: [jekyll, responsive, blog]
+tags: [development, ruby, rails, tech, blog]
 image:
-  feature: sample-image-1.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
+  feature: wallpaper.jpg
 ---
