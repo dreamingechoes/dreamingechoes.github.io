@@ -1,0 +1,14 @@
+# Site settings
+title: Dreamingechoes
+email: xixon.sound@gmail.com
+description: "Software developer @ <a href='http://simplelogica.net' target='_blank'>Simplelogica</a> <br> 100% geek and music freak"
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://dreamingechoes.github.io/" # the base hostname & protocol for your site
+twitter_username: dreamingechoes
+github_username:  dreamingechoes
+
+# Build settings
+markdown: kramdown
+source:      _source
+destination: _deploy
