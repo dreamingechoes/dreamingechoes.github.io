@@ -1,14 +1,60 @@
-# Site settings
-title: Dreamingechoes
-email: xixon.sound@gmail.com
-description: "Software developer @ <a href='http://simplelogica.net' target='_blank'>Simplelogica</a> <br> 100% geek and music freak"
+# Site wide configuration
 
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://dreamingechoes.github.io/" # the base hostname & protocol for your site
-twitter_username: dreamingechoes
-github_username:  dreamingechoes
+title:            dreamingechoes
+locale:           es_ES
+url:              http://dreamingechoes.github.io
 
-# Build settings
-markdown: kramdown
-source:      _source
-destination: _deploy
+
+# Jekyll configuration
+
+permalink:   /:categories/:title/
+markdown:    kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+
+# Site owner
+owner:
+  name: Iván González
+  avatar: bio-photo.jpg
+  bio: Software developer @ <a href='http://simplelogica.net' target='_blank'>Simplelogica</a> <br> 100% geek and music freak
+  email: xixon.sound@gmail.com
+  disqus-shortname: "dreamingechoes"
+  twitter: dreamingechoes
+  facebook: #username
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: dreamingechoes
+  stackoverflow: #http://stackoverflow.com/users/123456/username
+  linkedin: ivangonzalezsaiz
+  xing: #username
+  instagram: thedreamingechoes
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
