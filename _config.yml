@@ -29,32 +29,14 @@ owner:
   name: Iván González
   avatar: bio-photo.jpg
   bio: Software developer @ <a href='http://simplelogica.net' target='_blank'>Simplelogica</a> <br> 100% geek and music freak
-  email: xixon.sound@gmail.com
   disqus-shortname: "dreamingechoes"
-  twitter: dreamingechoes
-  facebook: #username
-  google:
-    plus: #username
-    analytics:
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
   github: dreamingechoes
-  stackoverflow: #http://stackoverflow.com/users/123456/username
   linkedin: ivangonzalezsaiz
-  xing: #username
+  twitter: dreamingechoes
   instagram: thedreamingechoes
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
+  email: xixon.sound@gmail.com
+  stackoverflow: 5218888/iván-gonzález
+  lastfm: dreamingechoes
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
