@@ -27,7 +27,7 @@ kramdown:
 # Site owner
 owner:
   name: Iván González
-  avatar: bio-photo.jpg
+  avatar: bio-thumbnail-photo.jpg
   bio: Software developer @ <a href='http://simplelogica.net' target='_blank'>Simplelogica</a> <br> 100% geek and music freak
   disqus-shortname: "dreamingechoes"
   github: dreamingechoes
@@ -37,6 +37,9 @@ owner:
   email: xixon.sound@gmail.com
   stackoverflow: 5218888/iván-gonzález
   lastfm: dreamingechoes
+  disqus-shortname: dreamingechoes
+  google:
+    analytics: UA-65616587-2
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
