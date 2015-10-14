@@ -154,7 +154,7 @@ Robot: Hi! Nice to meet you!
 ```
 ---
 
-Now we are ready to do our first simple bot (**AIML** has more tags, but for the purpose of this post, with this three tags is enough). If you want to get deeper on this, check [this tutorial](http://www.tutorialspoint.com/aiml/index.htm) (in fact, the examples showed here are picked directly from there).
+Now we are ready to do our first simple bot (**AIML** has more tags, but for the purpose of this post, with this three tags is enough). If you want to get deeper on this, check [this tutorial](http://www.tutorialspoint.com/aiml/index.htm) (in fact, the examples shown here are picked directly from there).
 
 ## Ok, but... why this should be fun?
 
@@ -166,7 +166,7 @@ Well, apart from the fun that implies learn new things, we could do a conversati
 
 ## Building a super simple Ruby on Rails app
 
-Well, we could make the robot using the console `irb` to interact with it (no user interface of any kind), but as we will make the bot in **Ruby**, why not make a simple **Rails** application and give a touch of fun?
+Well, we could make the robot using the `irb` console to interact with it (no user interface of any kind), but as we will make the bot in **Ruby**, why not make a simple **Rails** application and give a touch of fun?
 
 We will use one of the gems that more I love when it comes to make an application in a matter of minutes: [rails apps composer](https://github.com/RailsApps/rails_apps_composer).
 
@@ -190,7 +190,7 @@ With a little **CSS** and some **HTML** we'll have a view like this (don't worry
 
 As you can see, is a very simple view: an image, an area where the bot will display the response, text input and a button to interact.
 
-## Programr, the gem that will help us to create the bot
+## Programr, the gem that will help us to create the bot
 
 Now we have our **Rails** application, let's move to manage files `aiml` we will generate for our bot. The `aiml` files alone do not result in the bot, but we need something the interpreter. In much of modern programming languages there an implementation to interpret these files (from **Java** to **C**, and of course, **Ruby**).
 
@@ -242,7 +242,7 @@ CHIQUIBOT = ProgramR::Facade.new
 CHIQUIBOT.learn(brains)
 ```
 
-At the and we'll have something like this:
+At the end we'll have something like this:
 
 ```
 .
@@ -400,6 +400,6 @@ Yeah! Here you have the [Github repo](https://github.com/dreamingechoes/chiquibo
 
 If you don't want to play with the example repo, here you have a working example mounted on [Heroku](https://chiquibot.herokuapp.com).
 
-I hope you like this post and helps you to do the first step to immerse you into IA. And please, keep in mind this precious words from Chiquito de la Calzada:
+I hope you like this post and helps you to do the first step to immerse you into I.A. And please, keep in mind this precious words from Chiquito de la Calzada:
 
 > ¡No te digo trigo por no llamarte Rodrigoooooooorl!
