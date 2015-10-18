@@ -186,7 +186,7 @@ Create a **GitHub** repository for the gem, stage all of your commits, commit, a
 $ rake release
 ```
 
-Yes now! Finally we're done. From here we can use our newly released Rails gem in any project by simply adding to our Gemfile:
+Yes now! Finally we're done. From here we can use our newly released **Rails** gem in any project by simply adding to our Gemfile:
 
 ```ruby
 gem 'random_giphy_image_rails'
