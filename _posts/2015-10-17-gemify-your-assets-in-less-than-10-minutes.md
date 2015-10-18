@@ -12,11 +12,11 @@ image:
 
 ![Rubygems](/images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/rubygems.jpeg)
 
-If you develop a **javascript** library for some useful purpose and you share it with the community, you are a great person. But besides that, if you translate that into a **Rails** gem to use in any Rails project, you are a wonderful person. Today we're going to see how we could make a **Rails** gem in order to have our super fancy **javascript** library available to add in any gemfile.
+If you develop a **javascript** library for some useful purpose and you share it with the community, you are a great person. But besides that, if you translate that into a **Rails** gem to use in any **Rails** project, you are a wonderful person. Today we're going to see how we could make a **Rails** gem in order to have our super fancy **javascript** library available to add in any gemfile.
 
 ## First step, let's do a super fancy javascript library
 
-For this example, the first thing we have to do is our **javascript** library. Some super simple but funny thing, e.g., a **javascript** library to add random **Giphy** gifs in our **HTML**. Because the purpose of this post isn't develop this library, let's pretend that we have developed and look like this:
+For this example, the first thing we have to do is our **javascript** library. Some super simple but funny thing, e.g., a **javascript** library to add random **Giphy** gifs in our **HTML**. Because the purpose of this post isn't develop this library, let's pretend that we have developed and looks like this:
 
 ```javascript
 /**
@@ -103,7 +103,7 @@ $(document).ready(function(){
   RandomGiphyImageRails.giphyme();
 });
 ```
-And then put one or more HTML elements in your htmls:
+And then put one or more **HTML** tags in your views:
 
 ```html
 <body>
@@ -137,7 +137,7 @@ This will create basically the following tree:
 └── random_giphy_image_rails.gemspec
 ```
 
-## Turn the Gem into an engine
+## Turn the gem into an engine
 
 Bundler create the gem as a standard **Ruby** module, but we want it to be a **Rails** Engine. So in our `lib/random_giphy_image_rails.rb` file we are going to specify this:
 
@@ -210,7 +210,7 @@ Then, add this into your `application.js` file:
   //= require random_giphy_image_rails
 ```
 
-Oooooooooooooh yeah! 
+Oooooooooooooh yeah!
 
 ![Oh yeah!](/images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/oh-yeah.jpg)
 
