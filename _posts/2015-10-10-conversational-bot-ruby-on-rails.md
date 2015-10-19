@@ -3,11 +3,15 @@ layout: post
 title:  "Make a conversational bot in Ruby on Rails from scratch."
 date:   2015-10-10 15:30:00
 categories: bot ruby rails
+tags: bot ruby rails development web aiml
 comments: true
+excerpt: "Hi everyone! For the first post on my Github's page I was wondering what could I do to make something fun and useful, so I end with this idea: make a conversational bot in Ruby on Rails..."
 post_summary: "Hi everyone! For the first post on my Github's page I was wondering what could I do to make something fun and useful, so I end with this idea: make a conversational bot in Ruby on Rails..."
 image:
   feature: header-image.png
   main: /images/2015-10-10-conversational-bot-ruby-on-rails/ruby-on-rails.png
+  thumb: /images/2015-10-10-conversational-bot-ruby-on-rails/ruby-on-rails.png
+url: http://dreamingechoes.github.io/bot/ruby/rails/conversational-bot-ruby-on-rails/
 ---
 
 ![Ruby on Rails](/images/2015-10-10-conversational-bot-ruby-on-rails/ruby-on-rails.png)
