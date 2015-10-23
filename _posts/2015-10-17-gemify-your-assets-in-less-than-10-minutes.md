@@ -9,18 +9,15 @@ excerpt: "If you develop a javascript library for some useful purpose and share 
 post_summary: "If you develop a javascript library for some useful purpose and share with the community, you are a great person. But besides that the slides to a Rails gem to add it using gem install, you are a wonderful person..."
 image:
   feature: header-image.png
-  main: /images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/rubygems.jpeg
-  thumb: /images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/rubygems.jpeg
+  main: /images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/title.png
 url: http://dreamingechoes.github.io/gem/ruby/rails/gemify-your-assets-in-less-than-10-minutes/
 ---
 
-![Rubygems](/images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/rubygems.jpeg)
-
-If you develop a **javascript** library for some useful purpose and you share it with the community, you are a great person. But besides that, if you translate that into a **Rails** gem to use in any **Rails** project, you are a wonderful person. Today we're going to see how we could make a **Rails** gem in order to have our super fancy **javascript** library available to add in any gemfile.
+If you develop a javascript library for some useful purpose and you share it with the community, you are a great person. But besides that, if you translate that into a Rails gem to use in any Rails project, you are a wonderful person. Today we're going to see how we could make a Rails gem in order to have our super fancy javascript library available to add in any gemfile.
 
 ## First step, let's do a super fancy javascript library
 
-For this example, the first thing we have to do is our **javascript** library. Some super simple but funny thing, e.g., a **javascript** library to add random **Giphy** gifs in our **HTML**. Because the purpose of this post isn't develop this library, let's pretend that we have developed and looks like this:
+For this example, the first thing we have to do is our javascript library. Some super simple but funny thing, e.g., a javascript library to add random **Giphy** gifs in our HTML. Because the purpose of this post isn't develop this library, let's pretend that we have developed and looks like this:
 
 ```javascript
 /**
@@ -107,7 +104,7 @@ $(document).ready(function(){
   RandomGiphyImageRails.giphyme();
 });
 ```
-And then put one or more **HTML** tags in your views:
+And then put one or more HTML tags in your views:
 
 ```html
 <body>
@@ -143,7 +140,7 @@ This will create basically the following tree:
 
 ## Turn the gem into an engine
 
-Bundler create the gem as a standard **Ruby** module, but we want it to be a **Rails** Engine. So in our `lib/random_giphy_image_rails.rb` file we are going to specify this:
+Bundler create the gem as a standard Ruby module, but we want it to be a Rails Engine. So in our `lib/random_giphy_image_rails.rb` file we are going to specify this:
 
 ```ruby
 require "random_giphy_image_rails/version"
@@ -156,9 +153,9 @@ module RandomGiphyImageRails
 end
 ```
 
-All we're doing here is declaring the gem as a **Rails** Engine. This will cause Rails to add its directories to the load path when the gem is required.
+All we're doing here is declaring the gem as a Rails Engine. This will cause Rails to add its directories to the load path when the gem is required.
 
-Next step: add our **javascript** library. We're going to create in our gem the directory `vendor`, with directories `stylesheets`, `javascript` and `images` inside, so we finish with something like this:
+Next step: add our javascript library. We're going to create in our gem the directory `vendor`, with directories `stylesheets`, `javascript` and `images` inside, so we finish with something like this:
 
 ```
 .
@@ -190,7 +187,7 @@ Create a **GitHub** repository for the gem, stage all of your commits, commit, a
 $ rake release
 ```
 
-Yes now! Finally we're done. From here we can use our newly released **Rails** gem in any project by simply adding to our Gemfile:
+Yes now! Finally we're done. From here we can use our newly released Rails gem in any project by simply adding to our Gemfile:
 
 ```ruby
 gem 'random_giphy_image_rails'
