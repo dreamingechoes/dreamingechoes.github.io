@@ -9,12 +9,9 @@ excerpt: "Hi everyone! For the first post on my Github's page I was wondering wh
 post_summary: "Hi everyone! For the first post on my Github's page I was wondering what could I do to make something fun and useful, so I end with this idea: make a conversational bot in Ruby on Rails..."
 image:
   feature: header-image.png
-  main: /images/2015-10-10-conversational-bot-ruby-on-rails/ruby-on-rails.png
-  thumb: /images/2015-10-10-conversational-bot-ruby-on-rails/ruby-on-rails.png
+  main: /images/2015-10-10-conversational-bot-ruby-on-rails/title.png
 url: http://dreamingechoes.github.io/bot/ruby/rails/conversational-bot-ruby-on-rails/
 ---
-
-![Ruby on Rails](/images/2015-10-10-conversational-bot-ruby-on-rails/ruby-on-rails.png)
 
 Hi everyone! For the first post on my Github's page I was wondering what could I do to make something fun and useful, so I ended with this idea: **make a conversational bot in Ruby on Rails**.
 
@@ -23,9 +20,9 @@ The first approach I found that was kind of simple was [AIML](https://en.wikiped
 
 ## Let's see an extremely short introduction to AIML
 
-Because all the details about the **AIML** syntax and usage are properly documented on the [Alicebot](http://www.alicebot.org/aiml.html) website, we're going to see the basis in order to be able to do our very simple first bot.
+Because all the details about the AIML syntax and usage are properly documented on the [Alicebot](http://www.alicebot.org/aiml.html) website, we're going to see the basis in order to be able to do our very simple first bot.
 
-On this piece of code we have the *Hello wold!* of **AIML** (kind of):
+On this piece of code we have the *Hello wold!* of AIML (kind of):
 
 ```xml
 <aiml version="1.0.1" encoding="UTF-8"?>
@@ -45,13 +42,13 @@ User: Hello my beloved bot!
 Bot: Hello my friend! :)
 ```
 
-As you could see, matches with any **XML** dialect, having tags, elements and attributes.
+As you could see, matches with any XML dialect, having tags, elements and attributes.
 
 So, let's see on detail the pieces we have on this example:
 
 ### Tags
 
-`<aiml>` defines the beginning and end of a **AIML** document.
+`<aiml>` defines the beginning and end of a AIML document.
 `<category>` defines the **unit of knowledge** in bot's knowledge base.
 `<pattern>` defines the pattern to match what a user may input to a bot.
 `<template>` defines the response to user's input.
@@ -66,7 +63,7 @@ In this case we only have attributes on the `aiml` tag (`version` and `encoding`
 
 ## AIML basic tags
 
-Now that we have a first idea of what is **AIML** and his goal, for the purpose of this example we are going to see some basic tags (apart from which we had seen) which will help us to make our bot.
+Now that we have a first idea of what is AIML and his goal, for the purpose of this example we are going to see some basic tags (apart from which we had seen) which will help us to make our bot.
 
 ### star
 
@@ -94,7 +91,7 @@ If user enters *"A mango is a fruit."* then bot will respond as *"When a mango i
 
 ### srai
 
-Is a multipurpose tag. This tag enables **AIML** to define different targets for same template.
+Is a multipurpose tag. This tag enables AIML to define different targets for same template.
 
 #### Syntax
 
@@ -135,7 +132,7 @@ If user enters *"Do you know who Albert Einstein is?"* then bot will respond wit
 
 ### random
 
-Is as name suggests used to get random responses. This tag enables **AIML** to respond differently for same input. `random` tag is used along with `li` tags. `li` tags carries different responses that are to be delivered to user on random basis.
+Is as name suggests used to get random responses. This tag enables AIML to respond differently for same input. `random` tag is used along with `li` tags. `li` tags carries different responses that are to be delivered to user on random basis.
 
 #### Syntax
 
@@ -158,7 +155,7 @@ Robot: Hi! Nice to meet you!
 ```
 ---
 
-Now we are ready to do our first simple bot (**AIML** has more tags, but for the purpose of this post, with this three tags is enough). If you want to get deeper on this, check [this tutorial](http://www.tutorialspoint.com/aiml/index.htm) (in fact, the examples shown here are picked directly from there).
+Now we are ready to do our first simple bot (AIML has more tags, but for the purpose of this post, with this three tags is enough). If you want to get deeper on this, check [this tutorial](http://www.tutorialspoint.com/aiml/index.htm) (in fact, the examples shown here are picked directly from there).
 
 ## Ok, but... why this should be fun?
 
@@ -170,11 +167,11 @@ Well, apart from the fun that implies learn new things, we could do a conversati
 
 ## Building a super simple Ruby on Rails app
 
-Well, we could make the robot using the `irb` console to interact with it (no user interface of any kind), but as we will make the bot in **Ruby**, why not make a simple **Rails** application and give a touch of fun?
+Well, we could make the robot using the `irb` console to interact with it (no user interface of any kind), but as we will make the bot in Ruby, why not make a simple Rails application and give a touch of fun?
 
 We will use one of the gems that more I love when it comes to make an application in a matter of minutes: [rails apps composer](https://github.com/RailsApps/rails_apps_composer).
 
-Basically is a gem through a fairly simple question/answer process helps you create a fully functional **Rails** application. We will have to follow these steps:
+Basically is a gem through a fairly simple question/answer process helps you create a fully functional Rails application. We will have to follow these steps:
 
 ```sh
 $ mkdir myapp
@@ -186,9 +183,9 @@ $ gem install rvm # (only needed if creating a project-specific rvm gemset)
 $ rails_apps_composer new . -r core
 ```
 
-After answering the questions that the gem makes us have our **Rails** application. In this case, as it is an application that will not have database or anything special, we try to specify the most basic options. In my case I chose that I would generate a **Rails** application example, based on [bootstrap framework](http://getbootstrap.com/), with only the **home** and **about** views.
+After answering the questions that the gem makes us have our Rails application. In this case, as it is an application that will not have database or anything special, we try to specify the most basic options. In my case I chose that I would generate a Rails application example, based on [bootstrap framework](http://getbootstrap.com/), with only the **home** and **about** views.
 
-With a little **CSS** and some **HTML** we'll have a view like this (don't worry if I don't put the code in detail, at the end of the post you have a link to the repository where the final example is):
+With a little CSS and some HTML we'll have a view like this (don't worry if I don't put the code in detail, at the end of the post you have a link to the repository where the final example is):
 
 ![screenshot](/images/2015-10-10-conversational-bot-ruby-on-rails/screenshot1.png)
 
@@ -196,9 +193,9 @@ As you can see, is a very simple view: an image, an area where the bot will disp
 
 ## Programr, the gem that will help us to create the bot
 
-Now we have our **Rails** application, let's move to manage files `aiml` we will generate for our bot. The `aiml` files alone do not result in the bot, but we need something the interpreter. In much of modern programming languages there an implementation to interpret these files (from **Java** to **C**, and of course, **Ruby**).
+Now we have our Rails application, let's move to manage files `aiml` we will generate for our bot. The `aiml` files alone do not result in the bot, but we need something the interpreter. In much of modern programming languages there an implementation to interpret these files (from Java to C, and of course, Ruby).
 
-The Github user [Bob Whitney](https://github.com/robertjwhitney) has ported [http://aiml-programr.rubyforge.org/](http://aiml-programr.rubyforge.org/) to a gem. That gem is [Programr](https://github.com/robertjwhitney/programr), a **Ruby** implementation of an interpreter for the **Artificial Intelligence Markup Language**.
+The Github user [Bob Whitney](https://github.com/robertjwhitney) has ported [http://aiml-programr.rubyforge.org/](http://aiml-programr.rubyforge.org/) to a gem. That gem is [Programr](https://github.com/robertjwhitney/programr), a Ruby implementation of an interpreter for the **Artificial Intelligence Markup Language**.
 
 We only have to add this gem into our `Gemfile` and run the `bundle install` command.
 
@@ -233,7 +230,7 @@ end
 
 `robot.learn(ARGV)` parse the `aiml` files and keep in memory all the information for manage the bot conversation.
 
-`reaction = robot.get_reaction(s)` sends to the bot an entry (`s` contains the user message), match the user message with any of the bot patterns, and returns a response as result. Very simple and easy to understand. Let's integrate **Programr** with our **Rails** app!
+`reaction = robot.get_reaction(s)` sends to the bot an entry (`s` contains the user message), match the user message with any of the bot patterns, and returns a response as result. Very simple and easy to understand. Let's integrate **Programr** with our Rails app!
 
 First of all, create a folder in `lib` directory with the name of your bot (in my case, *chiquibot*) and put there all your `aiml` files. Then create a new initializer to load all the information:
 
@@ -265,7 +262,7 @@ At the end we'll have something like this:
 |   ...
 ```
 
-This will load the `aiml` files when the **Rails** server starts. The next step is create an action on `ApplicationController` we could call via `Ajax` to get the bot response. Simply add this code into the controller:
+This will load the `aiml` files when the Rails server starts. The next step is create an action on `ApplicationController` we could call via `Ajax` to get the bot response. Simply add this code into the controller:
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -284,7 +281,7 @@ and then add the route on `routes.rb` file:
 get 'ask_chiquito', to: 'application#ask_chiquito'
 ```
 
-Ok! We're almost done! Now the only thing we have to do is code some **JS** in order to do the **Ajax** call to our action. Let's do it simple, adding this few lines of code into our `application.js`:
+Ok! We're almost done! Now the only thing we have to do is code some JS in order to do the Ajax call to our action. Let's do it simple, adding this few lines of code into our `application.js`:
 
 ```javascript
 $(document).ready(function(){
