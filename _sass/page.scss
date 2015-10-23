@@ -282,10 +282,10 @@ $button-size: 1.5rem;
 		}
 		.image-title {
 			font-family: 'pixeladeregular';
-			padding: 20px;
+			padding: 8px;
 			width: 96%;
 			float: left;
-			background-color: #02A9A2;
+			background: transparent url("/images/title-background.png") repeat scroll 0% 0%;
 			margin-bottom: 16px;
 			div {
 				border: 6px solid #fff;
@@ -297,10 +297,15 @@ $button-size: 1.5rem;
 			}
 			p {
 				color: #fff;
-				font-size: 48px;
-				margin: 0;
-				a:hover {
-					text-decoration: underline;
+				font-size: 36px;
+				margin: 8px 0 0 0;
+				padding: 4px 16px;
+				background: #000;
+			}
+			a > p {
+				&:hover {
+					color: #000;
+					background: #fff;
 				}
 			}
 			hr {
@@ -477,11 +482,10 @@ $button-size: 1.5rem;
 	}
 	.image-title {
 		font-family: 'pixeladeregular';
-		color: #fff;
-		padding: 20px;
+		padding: 8px;
 		width: 96%;
 		float: left;
-		background-color: #02A9A2;
+		background: transparent url("/images/title-background.png") repeat scroll 0% 0%;
 		margin-bottom: 16px;
 		div {
 			border: 6px solid #fff;
@@ -492,13 +496,22 @@ $button-size: 1.5rem;
 			}
 		}
 		p {
-			font-size: 48px;
-			margin: 0;
+			color: #fff;
+			font-size: 36px;
+			margin: 8px 0 0 0;
+			padding: 4px 16px;
+			background: #000;
+		}
+		p + a {
+			&:hover {
+				color: #000;
+				background: #fff;
+			}
 		}
 		hr {
 			background: #FFF none repeat scroll 0% 0%;
 			margin: 4px 0px;
-			height: 6px;
+			height: 4px;
 		}
 	}
 }
