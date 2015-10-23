@@ -280,6 +280,32 @@ $button-size: 1.5rem;
 		p+p {
 			text-indent: 0;
 		}
+		.image-title {
+			font-family: 'pixeladeregular';
+			padding: 20px;
+			width: 96%;
+			float: left;
+			background-color: #02A9A2;
+			margin-bottom: 12px;
+			img {
+				width: 97%;
+				border: 8px solid #fff;
+				margin-bottom: 8px;
+			}
+			p {
+				color: #fff;
+				font-size: 48px;
+				margin: 0;
+				a:hover {
+					text-decoration: underline;
+				}
+			}
+			hr {
+				background: #FFF none repeat scroll 0% 0%;
+				margin: 4px 0px;
+				height: 6px;
+			}
+		}
 	}
 }
 
@@ -445,6 +471,29 @@ $button-size: 1.5rem;
 	p > a,
 	li > a {
 		text-decoration: underline;
+	}
+	.image-title {
+		font-family: 'pixeladeregular';
+		color: #fff;
+		padding: 20px;
+		width: 96%;
+		float: left;
+		background-color: #02A9A2;
+		margin-bottom: 12px;
+		img {
+			width: 97%;
+			border: 8px solid #fff;
+			margin-bottom: 8px;
+		}
+		p {
+			font-size: 48px;
+			margin: 0;
+		}
+		hr {
+			background: #FFF none repeat scroll 0% 0%;
+			margin: 4px 0px;
+			height: 6px;
+		}
 	}
 }
 

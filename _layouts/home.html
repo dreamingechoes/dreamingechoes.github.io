@@ -37,11 +37,17 @@
     {% for post in site.posts limit:5 %}
     <article>
       {% if post.link %}
-        <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+        <h2 class="link-post" style="display: none;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
       {% else %}
-        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+        <h2 style="display: none;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
         <br>
-        <img src="{{ post.image.main }}" alt="" />
+        <div class="image-title">
+          <img src="{{post.image.main}}" alt="{{post.title}}" />
+          <hr>
+          <p>
+            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}" style="color: #fff;">{{ post.title }}</a>
+          </p>
+        </div>
         <br><br>
         <p>
           {{ post.post_summary | strip_html }}
