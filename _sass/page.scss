@@ -287,11 +287,13 @@ $button-size: 1.5rem;
 			float: left;
 			background-color: #02A9A2;
 			margin-bottom: 12px;
-			img {
-				min-width: 96%;
-				max-width: 98%;
-				border: 8px solid #fff;
+			div {
+				border: 6px solid #fff;
 				margin-bottom: 8px;
+				overflow: hidden;
+				img {
+					width: 100%;
+				}
 			}
 			p {
 				color: #fff;
@@ -304,7 +306,7 @@ $button-size: 1.5rem;
 			hr {
 				background: #FFF none repeat scroll 0% 0%;
 				margin: 4px 0px;
-				height: 6px;
+				height: 4px;
 			}
 		}
 	}
@@ -481,10 +483,13 @@ $button-size: 1.5rem;
 		float: left;
 		background-color: #02A9A2;
 		margin-bottom: 12px;
-		img {
-			width: 97%;
-			border: 8px solid #fff;
+		div {
+			border: 6px solid #fff;
 			margin-bottom: 8px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
 		}
 		p {
 			font-size: 48px;
