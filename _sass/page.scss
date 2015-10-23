@@ -288,7 +288,8 @@ $button-size: 1.5rem;
 			background-color: #02A9A2;
 			margin-bottom: 12px;
 			img {
-				width: 97%;
+				min-width: 96%;
+				max-width: 98%;
 				border: 8px solid #fff;
 				margin-bottom: 8px;
 			}

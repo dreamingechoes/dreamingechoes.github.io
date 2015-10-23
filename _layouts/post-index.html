@@ -46,16 +46,22 @@
       {% endunless %}
       <article>
         {% if post.link %}
-          <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
+          <h2 class="link-post" style="display: none;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
         {% else %}
-        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-        <br>
-        <img src="{{ post.image.main }}" alt="" />
-        <br><br>
-        <p>
-          {{ post.post_summary | strip_html }}
-          <strong><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">(read more)</a></strong>
-        </p>
+          <h2 style="display: none;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+          <br>
+          <div class="image-title">
+            <img src="{{post.image.main}}" alt="{{post.title}}" />
+            <hr>
+            <p>
+              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}" style="color: #fff;">{{ post.title }}</a>
+            </p>
+          </div>
+          <br><br>
+          <p>
+            {{ post.post_summary | strip_html }}
+            <strong><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">(read more)</a></strong>
+          </p>
         {% endif %}
       </article>
     {% endfor %}
