@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            dreamingechoes.github.io
+title:            dreamingechoes
 locale:           es_ES
 url:              http://dreamingechoes.github.io
 
@@ -23,6 +23,9 @@ kramdown:
   toc_levels: 1..6
   use_coderay: false
 
+tag_page_layout: tag_page
+tag_page_dir: tag
+tag_permalink_style: pretty
 
 # Site owner
 owner:
@@ -38,6 +41,7 @@ owner:
   stackoverflow: 5218888/iván-gonzález
   lastfm: dreamingechoes
   disqus-shortname: dreamingechoes
+  pinterest: dreamingechoes
   google:
     analytics: UA-65616587-2
 
