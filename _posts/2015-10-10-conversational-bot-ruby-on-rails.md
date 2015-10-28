@@ -183,7 +183,7 @@ $ gem install rvm # (only needed if creating a project-specific rvm gemset)
 $ rails_apps_composer new . -r core
 ```
 
-After answering the questions that the gem makes us have our Rails application. In this case, as it is an application that will not have database or anything special, we try to specify the most basic options. In my case I chose that I would generate a Rails application example, based on [bootstrap framework](http://getbootstrap.com/), with only the **home** and **about** views.
+After answering the questions that the gem makes us, we will have our Rails application. In this case, as it is an application that will not have database or anything special, we try to specify the most basic options. In my case I chose that I would generate a Rails application example, based on [bootstrap framework](http://getbootstrap.com/), with only the **home** and **about** views.
 
 With a little CSS and some HTML we'll have a view like this (don't worry if I don't put the code in detail, at the end of the post you have a link to the repository where the final example is):
 
@@ -401,6 +401,6 @@ Yeah! Here you have the [Github repo](https://github.com/dreamingechoes/chiquibo
 
 If you don't want to play with the example repo, here you have a working example mounted on [Heroku](https://chiquibot.herokuapp.com).
 
-I hope you like this post and helps you to do the first step to immerse you into I.A. And please, keep in mind this precious words from Chiquito de la Calzada:
+I hope you like this post and helps you to do the first step to immerse you into AI. And please, keep in mind this precious words from Chiquito de la Calzada:
 
 > ¡No te digo trigo por no llamarte Rodrigoooooooorl!
