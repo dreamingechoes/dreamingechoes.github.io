@@ -17,7 +17,7 @@ Today we're gonna do an [RESTful API](https://en.wikipedia.org/wiki/Representati
 
 ## The beginning: the app where your data is
 
-Our RESTful API only will have sense inside an 'real app' with 'real data', so let's make a simple one. For this, as I had done on my first post, we will use [rails apps composer](https://github.com/RailsApps/rails_apps_composer). As I explained there, we will have to follow these steps:
+Our RESTful API only will have sense inside an 'real app' with 'real data', so let's make a simple one. For this, as I had done on my first post, we'll use [rails apps composer](https://github.com/RailsApps/rails_apps_composer). As I explained there, we'll have to follow these steps:
 
 ```sh
 $ mkdir myapp
@@ -29,7 +29,7 @@ $ gem install rvm # (only needed if creating a project-specific rvm gemset)
 $ rails_apps_composer new . -r core
 ```
 
-After answering the questions that the gem makes us, we will have our Rails application. In this case, as it is an application that will not have database or anything special, we try to specify the most basic options. In my case I chose that I would generate a Rails application example, based on [bootstrap framework](http://getbootstrap.com/), with only the **home** and **about** views.
+After answering the questions that the gem makes us, we'll have our Rails application. We try to specify the most basic options. In my case I chose that I would generate a Rails application example, based on [bootstrap framework](http://getbootstrap.com/), with only the **home** and **about** views.
 
 Then we only need to do a couple of scaffolds, in order to make two models (in my case, Product and Review). This are the migrations for each one (don't worry, at the end I'll put links to the final example repo and Heroku demo, so you will have all the code):
 
@@ -80,11 +80,11 @@ Ok, we have our very simple app. It's time to apify it! :D
 
 ## Let's build our API with Grape
 
-This is the real thing of this post. We are going to develop a RESTful API to consume our data wherever we want. In order to acomplish that, we are going to use Grape. Grape's own people defines Grape as follows:
+This is the real thing of this post. We're going to develop a RESTful API to consume our data wherever we want. In order to accomplish that, we're going to use Grape. Grape's own people defines Grape as follows:
 
 > RESTful-like API micro-framework built to complement existing web application frameworks by providing a simple DSL to easily provide APIs. It has built-in support for common conventions such as multiple formats, subdomain/prefix restriction, and versioning.
 
-The Grape documentation in all his detail is available [here](https://github.com/ruby-grape/grape). The first thing that we ahve to do is add the gem in our Gemfile:
+The Grape documentation in all his detail is available [here](https://github.com/ruby-grape/grape). The first thing that we have to do is add the gem in our Gemfile:
 
 ```ruby
 gem 'grape'
@@ -132,7 +132,7 @@ end
 
 ## Building the API
 
-Grape APIs are Rack applications that are created by subclassing your API modules or classes under Grape::API. In order to maintain a minimum versioning of the API, on the main folder `grape_example_app` we are going to create a file, `v1.rb`, with this content:
+Grape APIs are Rack applications that are created by subclassing your API modules or classes under Grape::API. In order to maintain a minimum versioning of the API, on the main folder `grape_example_app` we're going to create a file, `v1.rb`, with this content:
 
 ```ruby
 module GrapeExampleApp
@@ -148,7 +148,7 @@ end
 
 We set up our API module (GrapeExampleApp), define our Base class `V1` (which inherits from Grape::API) and setting some Grape options like `version`, `content_type` of the API, `prefix` and response `format`.
 
-Grape supports versioning. Future versions that we may develop as our application grows will then be nested inside version two, three etc... modules. The next step is create a subfolder `v1` inside `grape_example_app`, and then creates inside this new subfolder the classes that will handle the API actions for our models Product and Review. At the end, we will have something like this:
+Grape supports versioning. Future versions that we may develop as our application grows will then be nested inside version two, three etc... modules. The next step is create a subfolder `v1` inside `grape_example_app`, and then creates inside this new subfolder the classes that will handle the API actions for our models Product and Review. At the end, we'll have something like this:
 
 ```
 .
@@ -181,7 +181,7 @@ module GrapeExampleApp
 end
 ```
 
-Ooooooook, so... we have the folder schema and the basic files. Now we are going to add some functionality to our base class with some helpers. For this basic example let's develop three basic helpers: `api_response` that will handle the API reponse format, `authenticate!` that will send an authentication error if the user doesn't authenticates properly, and `clean_params` to preprocess the params of the requests.
+Ooooooook, so... we have the folder schema and the basic files. Now we're going to add some functionality to our base class with some helpers. For this basic example let's develop three basic helpers: `api_response` that will handle the API response format, `authenticate!` that will send an authentication error if the user doesn't authenticates properly, and `clean_params` to preprocess the params of the requests.
 
 All the helpers have to be inside the `helpers` block, like:
 
@@ -299,7 +299,7 @@ module GrapeExampleApp
 end
 ```
 
-This allows, along with the headers that we have specified in our base class, CORS requests. And with the base class helpers, let's add two more in Product class, both will be the parameters that we will use in the requests: `token` and `attributes`.
+This allows, along with the headers that we have specified in our base class, CORS requests. And with the base class helpers, let's add two more in Product class, both will be the parameters that we'll use in the requests: `token` and `attributes`.
 
 ```ruby
 helpers do
@@ -313,7 +313,7 @@ helpers do
 end
 ```
 
-As we want a RESTful API, we have to implement the HTTP verbs GET, POST and PUT (for this example we are going to avoid DELETE verb). All of this has to be inside of the `resource` block. Let's see GET verb as example:
+As we want a RESTful API, we have to implement the HTTP verbs GET, POST and PUT (for this example we're going to avoid DELETE verb). All of this has to be inside of the `resource` block. Let's see GET verb as example:
 
 ```ruby
 resource :products do
@@ -344,7 +344,7 @@ route_param :id do
 end
 ```
 
-Here we have a little more interesting code. As we could see, we have a `params` block, were we define the parameters that we will handle on the request, and then the actions inside the GET. With the helper `authenticate!` that we have defined before, we check if the token that the user send us is valid. If so, we find the product with the `id` from params and pass it to `api_response`. If not, we raise an exception and returns this as response.
+Here we have a little more interesting code. We have a `params` block, were we define the parameters that we'll handle on the request, and then the actions inside the GET. With the helper `authenticate!` that we have defined before, we check if the token that the user send us is valid. If so, we find the product with the `id` from params and pass it to `api_response`. If not, we raise an exception and returns this as response.
 
 So, with GET with and without ID done, lets move on to the next point: POST and PUT. Both verbs are similar, but POST is used for create new elements, whereas PUT is used to update. POST code will be like that:
 
@@ -512,7 +512,7 @@ end
 
 ## Give some authentication to the API
 
-The `authenticate!` helper help us to determine if an user is valid or not via the `token` param. For this we need to create a model that store these tokens and associate them to application users. Because this is a simple example, let's do a simple model like this:
+The `authenticate!` helper help us to determine if an user is valid or not via the `token` param. For this we need to create a model that store these tokens and associate them to application users. Because this is a simple example, we're going to do a simple model like this:
 
 ```ruby
 class ApiKey < ActiveRecord::Base
@@ -576,14 +576,14 @@ Voila! We have a simple authentication via token :)
 
 ## Documenting the API with Grape Swagger
 
-As the last step of all this, and because we love our users, let's do some documentation (simple, but documentation at the end). For this we will use the Grape Swagger gem. Again, all the detailed documentation about Grape Swagger is on [their website](https://github.com/ruby-grape/grape-swagger), but let's see a simple and fast example. First of all, add this to our Gemfile and do `bundle install`:
+As the last step of all this, and because we love our users, let's do some documentation (simple, but documentation at the end). For this we'll use the Grape Swagger gem. Again, all the detailed documentation about Grape Swagger is on [their website](https://github.com/ruby-grape/grape-swagger), but let's see a simple and fast example. First of all, add this to our Gemfile and do `bundle install`:
 
 ```ruby
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 ```
 
-Next, complete the description and detail of every verb on our API, specifing this on `desc` and `detail` blocks, e.g., the Product POST:
+Next, complete the description and detail of every verb on our API, specifying this on `desc` and `detail` blocks, e.g., the Product POST:
 
 ```ruby
 desc 'REST Post with attributes param.' do
@@ -636,7 +636,7 @@ add_swagger_documentation(
 )
 ```
 
-And finally we have to create an initializer for the gem. On `config/initializers` folder, create the file `grape_swagger_rails` with this content:
+And finally we have to create an initializer for the gem. On `config/initializers` folder, create the file `grape_swagger_rails` with this content (or with the options we want based on the Grape Swagger documentation):
 
 ```ruby
 GrapeSwaggerRails.options.url      = "api/v1/swagger_doc"
