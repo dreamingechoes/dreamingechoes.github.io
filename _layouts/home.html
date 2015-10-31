@@ -57,6 +57,21 @@
       {% endif %}
     </article>
     {% endfor %}
+
+    <h3><a href="{{ site.url}}/tips/">Recent Tips & Tricks</a></h3>
+    {% for post in site.tips limit:5 %}
+    <article>
+      {% if post.link %}
+        <h2 class="link-post" style="display: none;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+      {% else %}
+        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+        <p>
+          {{ post.post_summary | strip_html }}
+          <strong><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">(read more)</a></strong>
+        </p>
+      {% endif %}
+    </article>
+    {% endfor %}
   </div><!-- /#index -->
 </div><!-- /#main -->
 

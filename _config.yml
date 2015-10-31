@@ -7,6 +7,10 @@ url:              http://dreamingechoes.github.io
 
 # Jekyll configuration
 
+collections:
+  tips:
+    output: true
+    permalink: /tips/:path/
 permalink:   /:categories/:title/
 markdown:    redcarpet
 highlighter: pygments
@@ -16,7 +20,7 @@ sass:
 gems:
   - jekyll-sitemap
   - jekyll-feed
-  
+
 kramdown:
   auto_ids: true
   footnote_nr: 1
