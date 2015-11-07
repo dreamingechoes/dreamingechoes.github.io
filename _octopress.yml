@@ -1,6 +1,7 @@
 # Default extensions
 post_ext: md
 page_ext: md
+tip_ext: md
 
 # Found in _templates/
 post_layout: post

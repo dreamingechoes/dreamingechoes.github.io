@@ -5,8 +5,8 @@ date:   2015-10-17 15:30:00
 categories: gem ruby rails
 tags: gem ruby rails assets gemify development web
 comments: true
-excerpt: "If you develop a javascript library for some useful purpose and share with the community, you are a great person. But besides that the slides to a Rails gem to add it using gem install, you are a wonderful person..."
-post_summary: "If you develop a javascript library for some useful purpose and share with the community, you are a great person. But besides that the slides to a Rails gem to add it using gem install, you are a wonderful person..."
+excerpt: "If you develop a javascript library for some useful purpose and share with the community, you are a great person. But besides that, if you translate that into a Rails gem to add it using gem install, you are a wonderful person..."
+post_summary: "If you develop a javascript library for some useful purpose and share with the community, you are a great person. But besides that, if you translate that into a Rails gem to add it using gem install, you are a wonderful person..."
 image:
   feature: header-image.png
   main: /images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/title.png

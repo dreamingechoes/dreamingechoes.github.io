@@ -9,7 +9,7 @@ excerpt: "Install old version of therubyracer gem on Mac OS X without pain."
 post_summary: "Install old version of therubyracer gem on Mac OS X without pain."
 image:
   feature: header-image.png
-url: http://dreamingechoes.github.io/gem/ruby/rails/install-old-versions-therubyracer-gem-on-mac-os-x/
+url: http://dreamingechoes.github.io/tips/install-old-versions-therubyracer-gem-on-mac-os-x/
 ---
 
 I had a problem when I tried to install version 0.10.2 of therubyracer gem on Mac OS X Yosemite, so I searched and I tried different solutions, and the one it works for me was this:
