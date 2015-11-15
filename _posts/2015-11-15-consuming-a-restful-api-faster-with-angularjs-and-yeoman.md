@@ -5,15 +5,15 @@ date:   2015-11-15 15:30:00
 categories: angularjs yeoman api
 tags: angularjs yeoman api development web
 comments: true
-excerpt: "Find the perfect shop near you when you are in a hurry and need something is important, so today we're gonna do a geosearch example to help our users and make their lives easier..."
-post_summary: "Find the perfect shop near you when you are in a hurry and need something is important, so today we're gonna do a geosearch example to help our users and make their lives easier..."
+excerpt: "WIP POST..."
+post_summary: "WIP POST..."
 image:
   feature: header-image.png
   main: /images/2015-11-15-consuming-a-restful-api-faster-with-angularjs-and-yeoman/title.png
 url: /angularjs/yeoman/api/consuming-a-restful-api-faster-with-angularjs-and-yeoman/
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+WIP POST.
 
 ## First step: install all the dependencies
 
@@ -64,4 +64,4 @@ Bla bla bla...
 
 ## Any place where I can see the result?
 
-Yeah! Here you have the [Github repo](https://github.com/dreamingechoes/geosearch_with_mongodb) for this example, so you can clone it, change it, play with it... whatever you want! :)
+Yeah! Here you have the [Github repo](https://github.com/dreamingechoes/angularjs_giphy_app) for this example, so you can clone it, change it, play with it... whatever you want! :)
