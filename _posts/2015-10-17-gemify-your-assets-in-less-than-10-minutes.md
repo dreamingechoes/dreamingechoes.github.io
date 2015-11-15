@@ -10,7 +10,7 @@ post_summary: "If you develop a javascript library for some useful purpose and s
 image:
   feature: header-image.png
   main: /images/2015-10-17-gemify-your-assets-in-less-than-10-minutes/title.png
-url: http://dreamingechoes.github.io/gem/ruby/rails/gemify-your-assets-in-less-than-10-minutes/
+url: /gem/ruby/rails/gemify-your-assets-in-less-than-10-minutes/
 ---
 
 If you develop a javascript library for some useful purpose and you share it with the community, you are a great person. But besides that, if you translate that into a Rails gem to use in any Rails project, you are a wonderful person. Today we're going to see how we could make a Rails gem in order to have our super fancy javascript library available to add in any gemfile.

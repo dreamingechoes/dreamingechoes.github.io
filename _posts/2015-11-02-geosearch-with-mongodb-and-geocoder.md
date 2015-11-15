@@ -10,7 +10,7 @@ post_summary: "Find the perfect shop near you when you are in a hurry and need s
 image:
   feature: header-image.png
   main: /images/2015-11-02-geosearch-with-mongodb-and-geocoder/title.png
-url: http://dreamingechoes.github.io/geosearch/mongodb/rails/geosearch-with-mongodb-and-geocoder/
+url: /geosearch/mongodb/rails/geosearch-with-mongodb-and-geocoder/
 ---
 
 Find the perfect shop near you when you are in a hurry and need something is important, so today we're gonna do a geosearch example to help our users and make their lives easier.

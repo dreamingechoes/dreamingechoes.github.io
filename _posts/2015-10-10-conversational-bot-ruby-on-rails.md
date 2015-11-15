@@ -10,7 +10,7 @@ post_summary: "Hi everyone! For the first post on my Github's page I was wonderi
 image:
   feature: header-image.png
   main: /images/2015-10-10-conversational-bot-ruby-on-rails/title.png
-url: http://dreamingechoes.github.io/bot/ruby/rails/conversational-bot-ruby-on-rails/
+url: /bot/ruby/rails/conversational-bot-ruby-on-rails/
 ---
 
 Hi everyone! For the first post on my Github's page I was wondering what could I do to make something fun and useful, so I ended with this idea: **make a conversational bot in Ruby on Rails**.

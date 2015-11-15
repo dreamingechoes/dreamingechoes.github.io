@@ -5,6 +5,7 @@ modified:
 categories: {{ dir }}
 excerpt:
 tags: []
+paginate: true
 image:
   feature: header-image.png
 ---

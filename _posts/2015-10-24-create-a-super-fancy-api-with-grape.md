@@ -10,7 +10,7 @@ post_summary: "Today we're gonna do an RESTful API in Ruby on Rails. Are you rea
 image:
   feature: header-image.png
   main: /images/2015-10-24-create-a-super-fancy-api-with-grape/title.png
-url: http://dreamingechoes.github.io/api/ruby/rails/create-a-super-fancy-api-with-grape/
+url: /api/ruby/rails/create-a-super-fancy-api-with-grape/
 ---
 
 Today we're gonna do an [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) in Ruby on Rails. Are you ready? So without further ado... let's go!

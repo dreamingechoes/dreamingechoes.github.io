@@ -1,40 +1,47 @@
 # Site wide configuration
-
-title:            dreamingechoes
-locale:           es_ES
-url:              http://dreamingechoes.github.io
-
+production:
+  url: http://dreamingechoes.github.io
+development:
+  url: http://localhost:4000
+  
+title: dreamingechoes
+locale: en_EN
 
 # Jekyll configuration
-
 collections:
   tips:
     output: true
     permalink: /tips/:path/
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
 permalink:   /:categories/:title/
 markdown:    redcarpet
 highlighter: pygments
+
 sass:
   sass_dir: _sass
   style: compressed
+
 gems:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
 
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
-
+  enable_coderay: false
 
 # Site owner
 owner:
   name: Iván González
   avatar: bio-thumbnail-photo.jpg
   bio: Software developer @ <a href='http://simplelogica.net' target='_blank'>Simplelogica</a> <br> 100% geek and music freak
-  disqus-shortname: "dreamingechoes"
+  disqus-shortname: dreamingechoes
   github: dreamingechoes
   linkedin: ivangonzalezsaiz
   twitter: dreamingechoes

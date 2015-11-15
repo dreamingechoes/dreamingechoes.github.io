@@ -6,10 +6,10 @@ categories: bootstrap gem ruby rails
 tags: gem ruby rails development web bootstrap theme admin
 comments: true
 excerpt: "I need to integrate the Bootstrap based admin theme SB Admin 2 into a Rails application. I had search on the internet about a gem in order to make it easier the integration of all the assets (images, fonts, css, js…), and due to I didn’t found any gem, I developed a Rails gem of them..."
-post_summary: "I need to integrate the Bootstrap based admin theme SB Admin 2 into a Rails application. I had search on the internet about a gem in order to make it easier the integration of all the assets (images, fonts, css, js…), and due to I didn’t found any gem, I developed a Rails gem..."
+tip_summary: "I need to integrate the Bootstrap based admin theme SB Admin 2 into a Rails application. I had search on the internet about a gem in order to make it easier the integration of all the assets (images, fonts, css, js…), and due to I didn’t found any gem, I developed a Rails gem..."
 image:
   feature: header-image.png
-url: http://dreamingechoes.github.io/tips/2015-11-07-easy-integration-of-bootstrap-admin-theme-sb-admin-base-v2-on-rails/
+url: /tips/2015-11-07-easy-integration-of-bootstrap-admin-theme-sb-admin-base-v2-on-rails/
 ---
 
 I need to integrate the [Bootstrap based admin theme SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/) into a Rails application. I had search on the internet about a gem in order to make it easier the integration of all the assets (images, fonts, css and js), and due to I didn’t found any gem, I developed a Rails gem.

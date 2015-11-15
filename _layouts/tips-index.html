@@ -34,24 +34,15 @@
   </div>
   <div id="index">
     <h1>{{ page.title }}</h1>
-    {% for post in site.tips %}
-    {% unless post.next %}
-      <h3>{{ post.date | date: '%Y' }}</h3>
-      {% else %}
-        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-        {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-        {% if year != nyear %}
-          <h3>{{ post.date | date: '%Y' }}</h3>
-        {% endif %}
-      {% endunless %}
+    {% for tip in site.tips %}
       <article>
-        {% if post.link %}
-          <h2 class="link-post" style="display: none;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+        {% if tip.link %}
+          <h2 class="link-tip" style="display: none;"><a href="{{ site.url }}{{ tip.url }}" title="{{ tip.title }}">{{ tip.title }}</a> <a href="{{ tip.link }}" target="_blank" title="{{ tip.title }}"><i class="fa fa-link"></i></h2>
         {% else %}
-          <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+          <h2><a href="{{ site.url }}{{ tip.url }}" title="{{ tip.title }}">{{ tip.title }}</a></h2>
           <p>
-            {{ post.post_summary | strip_html }}
-            <strong><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">(read more)</a></strong>
+            {{ tip.tip_summary | strip_html }}
+            <strong><a href="{{ site.url }}{{ tip.url }}" title="{{ tip.title }}">(read more)</a></strong>
           </p>
         {% endif %}
       </article>
