@@ -13,7 +13,7 @@ image:
 url: /angularjs/yeoman/api/consuming-a-restful-api-faster-with-angularjs-and-yeoman/
 ---
 
-To change a little bit the "Rails wave" of my previous posts, I want to touch other web technology. Due to the fact that I'm going to start a development with AngularJS near, I think that could be great to share a fast way to introduce you to the AngularJS world.
+To change a little bit the "Rails wave" of my previous posts, I want to touch other web technology. Due to the fact that I'm going to start a development with AngularJS, I think that could be great to share a fast way to introduce you to the AngularJS world.
 
 ## First step: install all the dependencies
 
@@ -56,7 +56,7 @@ user@computer:/angularjs_giphy_app$ yo angular
 ? Which modules would you like to include? angular-animate.js, angular-cookies.js, angular-resource.js...
 ```
 
-After the process has finished, just execute `grunt serve`, and what that's going to go it's going to start up a web server on your own computer using `node.js` and it's going to open a web browser with your application. You'll see something like this:
+After the process has finished, just execute `grunt serve`, that's going to start up a web server on your own computer using `node.js` and it's going to open a web browser with your application. You'll see something like this:
 
 ![screenshot](/images/2015-11-15-consuming-a-restful-api-faster-with-angularjs-and-yeoman/screenshot1.png)
 
@@ -91,7 +91,7 @@ angular.module('angularjsGiphyAppApp')
   }]);
 ```
 
-This is the most simple controller we can define. We have an Angular Module (angularjsGiphyAppApp), then we add the controller's constructor function to the module using the `.controller()` method. And finally we have used an inline injection annotation to explicitly specify the dependency of the Controller on the `$scope`, `$http` and `$q` services provided by Angular.
+This is the most simple controller we can define. We have an AngularJS Module (angularjsGiphyAppApp), then we add the controller's constructor function to the module using the `.controller()` method. And finally we have used an inline injection annotation to explicitly specify the dependency of the Controller on the `$scope`, `$http` and `$q` services provided by AngularJS.
 
 To configure the routes of our application, let's open the `app/scripts/app.js` and put the following code:
 
@@ -157,7 +157,7 @@ With some CSS (added into `app/styles/main.scss`), we should have something like
 
 ![screenshot](/images/2015-11-15-consuming-a-restful-api-faster-with-angularjs-and-yeoman/screenshot2.png)
 
-Well, let's keep the index simple and we're going to the gif view to start with the implementation of the form that we'll use to search through the Giphy API. Open the `app/views/gif.html` file and code this into the file:
+Well, let's keep the index that simple and we're going to the gif view to start with the implementation of the form that we'll use to search through the Giphy API. Open the `app/views/gif.html` file and code this into the file:
 
 ```html
 <h1>Gifs</h1>
@@ -226,7 +226,7 @@ Let's see on detail one of the form elements to understand how it works (the oth
 
 Again we have two new AngularJS directive: `ng-model` and `ng-change`. `ng-model` links the value contained in the input element to a value inside the `$scope` of our controller. In this case (`ng-model="search"`), we're linking the content of the text input to the value `search` of our `$scope`. So we have this value available and ready to use on the controller in `$scope.search`.
 
-Meanwhile, the `ng-change` directive specifies to AngularJS that links the `change` event of the text input to a specific action or method of our controller. So `ng-change="change()"` will link the change event of out text input to the controller method ` $scope.change`. Simple, right?
+Meanwhile, the `ng-change` directive specifies to AngularJS that links the `change` event of the text input to a specific action or method of our controller. So `ng-change="change()"` will link the change event of our text input to the controller method ` $scope.change`. Simple, right?
 
 Anyway, You have the complete documentation of `ng-model` [here](https://docs.angularjs.org/api/ng/directive/ngModel) and `ng-change` [here](https://docs.angularjs.org/api/ng/directive/ngChange).
 
@@ -234,7 +234,7 @@ The next step is implement the required methods in our controller in order to co
 
 ## We need some action!
 
-If reading the title of this part has come to your mind certain song, you're a cool person. If not, before continuing with the post head over to view [this video](https://www.youtube.com/watch?v=ZTidn2dBYbY) and then return to continue :D
+If reading the title of this part has come to your mind certain song, you're a cool person. If not, before continuing with the post head over to view [this video](https://www.youtube.com/watch?v=ZTidn2dBYbY) and then return to continue :)
 
 In fact, our controller will be very simple, just have two methods to implement the operations of our application. The `$scope.change` method defined previously will looks like this:
 
@@ -265,9 +265,9 @@ $scope.fetch = function(){
 };
 ```
 
-That's where the magic happens. Firstly, we define a defer object via the `$q` object. `%q` is a service that helps you run functions asynchronously, and use their return values (or exceptions) when they are done processing (detailed documentation [here](https://docs.angularjs.org/api/ng/service/$q)).
+That's where the magic happens. Firstly, we define a defer object via the `$q` object. `$q` is a service that helps you to run functions asynchronously, and use their return values (or exceptions) when they are done processing (detailed documentation [here](https://docs.angularjs.org/api/ng/service/$q)).
 
-So we define a new instance of deferred by calling `$q.defer()`: `var deferred = $q.defer();`. At the end of the method, we're going to return the promise of this deferred, `return deferred.promise;`. In between, we generate the request to the Giphy API to assign the results to the object `gifs`, which will be the one we render in the final view.
+So we define a new instance of deferred with `var deferred = $q.defer();`. At the end of the method, we're going to return the promise of this deferred, `return deferred.promise;`. In between, we generate the request to the Giphy API to assign the results to the object `gifs`, which will be the one we'll render in the final view.
 
 To execute the API request, we use the `$http` method. Is simple, similar to the `$.get()` jQuery method, so I'm not going to explain deeply (better see the documentation [here](https://docs.angularjs.org/api/ng/service/$http)). The key of this method resides on the `successCallback`, which is where we're going to resolve the deferred object and assign to `$scope.gifs` the response from the Giphy API.
 
@@ -288,11 +288,11 @@ Once we have the information in our `gifs` object, we're ready to render on the 
 </div>
 ```
 
-Here we have one more AngularJS directive, `ng-repeat` (detailed documentation [here](https://docs.angularjs.org/api/ng/directive/ngRepeat)). This instantiates a template once per item from a collection (in this case, one `div` per gif object contained in our `gifs` object). Just print the values you want through signs `{{ }}` and... Voilá! Save aaaaaaaaaall the code of the application, refresh the grunt server, and try to search something with the form. Suddenly begin to magically appear below the form all the results with cool gifs from Giphy, like this:
+Here we have one more AngularJS directive, `ng-repeat` (detailed documentation [here](https://docs.angularjs.org/api/ng/directive/ngRepeat)). This instantiates a template once per item from a collection (in this case, one `div` per gif object contained in our `gifs` object). Just print the values you want and... Voilá! Save all the code of the application, refresh the grunt server by execute `grunt serve` again (if you don't have it on background), and try to search something with the form. Suddenly begin to magically appear below the form all the results with cool gifs from Giphy, like this:
 
 ![screenshot](/images/2015-11-15-consuming-a-restful-api-faster-with-angularjs-and-yeoman/screenshot4.png)
 
-That's it! From here we can play a little bit with the result and enjoy our first web application AngularJS. I hope this post helps you to beging to play with AngularJS. Any comment or suggestion you consider appropriate to enhance understanding of the post will be welcomed. And to celebrate that everything ends OK, I leave you with a cool gif (why not?)... Cheers!
+That's it! From here we can play a little bit with the result and enjoy our first web application AngularJS. I hope this post helps you to begin to play with AngularJS. Any comment or suggestion you consider appropriate to enhance understanding of the post will be welcomed. And to celebrate that everything ends OK, I leave you with a cool gif (why not?)... Cheers!
 
 ![Deal with it](https://media.giphy.com/media/TidtDukYTD0lO/giphy.gif)
 
