@@ -4,6 +4,7 @@ production:
 development:
   url: http://localhost:4000
 
+url: http://dreamingechoes.github.io
 title: dreamingechoes
 locale: en_EN
 
