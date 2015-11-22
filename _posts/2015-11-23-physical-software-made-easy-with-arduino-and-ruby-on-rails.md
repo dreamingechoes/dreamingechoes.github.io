@@ -1,0 +1,336 @@
+---
+layout: post
+title:  "Physical software made easy with Arduino and Ruby on Rails."
+date:   2015-11-23 15:30:00
+categories: arduino ruby rails
+tags: arduino ruby rails development web sensors
+comments: true
+excerpt: "One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!..."
+post_summary: "One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!..."
+image:
+  feature: header-image.png
+  main: /images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/title.png
+url: /arduino/ruby/rails/physical-software-made-easy-with-arduino-and-ruby-on-rails/
+---
+
+One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!
+
+## So.. what's the idea?
+
+Thinking about combine both fields, the simplest and useful idea that I thought is to develop a kind of cheap system with which you could track the values of all the sensors placed in our house. The challenge is to keep the cost of the system below the 20 euros.
+
+Ok, so in order to accomplish the challenge, we'll need some hardware:
+
+* An Arduino board or compatible (around 5 euros on eBay).
+* A protoboard where connect all the components and some wires (easily no more than 5 euros on eBay).
+* An ethernet adaptor for the Arduino board like the one used in this example, the ENC28J60 Ethernet chip (yes, around 5 euros on eBay).
+* Some kind of sensor to get measures of your physical environment like the one used in this example, a DHT11 Temperature and humidity sensor (below 2 euros on eBay).
+
+So the final cost is around 17/18 euros, under the 20 euros limit. Yeah! Well, we already have the hardware, but we need the software where all the data are going to be stored in order to be able to track all this measures. And what better way to do this than with an application in Ruby on Rails?
+
+## Let's build our simple Rails application
+
+We need some kind of web administration panel, so that our Rails application will have listings to display all the information we store in it, and a RESTful API through which we receive measurements from our Arduino board. I could explain how to develop this application, but in order to keep the post not too long, you can go into these other posts where I explain these things in detail:
+
+* [Create a super fancy API with Grape](http://dreamingechoes.github.io/api/ruby/rails/create-a-super-fancy-api-with-grape/).
+* [Easy integration of Bootstrap Admin theme SB Admin Base V2 on Ruby on Rails](http://dreamingechoes.github.io/tips/2015-11-07-easy-integration-of-bootstrap-admin-theme-sb-admin-base-v2-on-rails/).
+
+For this example, I use the Bootstrap Admin theme SB Admin Base V2 gem that I made to integrate this Bootstarp theme with my application (you could find it [here](https://github.com/dreamingechoes/bootstrap_sb_admin_base_v2)), so at the end I have something like this:
+
+![screenshot](/images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/screenshot1.png)
+<hr>
+*List of sensors*
+
+![screenshot](/images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/screenshot2.png)
+<hr>
+*Sensor details view*
+
+If you feel lazy and you don't want to spend the time developing this Rails application, you could check the one I made in his [Github repo](https://github.com/dreamingechoes/sensors_admin_panel).
+
+## Ok, we have the Rails application, but what about the hardware?
+
+Let's now go to the second part of our system, the hardware. For this example, I use an Arduino Uno board, an ENC28J60 Ethernet chip, and a DHT11 Temperature and humidity sensor to send this measures (temperauture and humidity) to my Rails application. I only use one sensor, but you can attach to the Arduino Board as many sensors as you want.
+
+Wiring all properly, we'll have something like this:
+
+![Real Schema](/images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/real_schema.jpg)
+
+Here is the schema made with Fritzing of the example :
+
+![Schema](/images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/schema.png)
+
+I will not go into detail about how I wired everything, because it's better to use the official documentation or datasheet of each sensor or component you'll use. This is only an example.
+
+## Arduino, do as I command!
+
+We have to set our Arduino to read the values that the sensor give us, and send them to our RESTful API. For this we will make use of two libraries, one for managing the temperature and humidity sensor, and another to use the ethernet chip. But first of all, let's install the Arduino IDE.
+
+Go to [the Arduino download page](https://www.arduino.cc/en/Main/Software) and download and install the Arduino software for your operating system. Once this is done, we'll have to download the libraries that I comment, you can do on these links:
+
+* [Ethercard](https://github.com/jcw/ethercard)
+* [Dht11_Library](https://github.com/adalton/arduino/tree/master/projects/Dht11_Library)
+
+[Here](https://www.arduino.cc/en/Hacking/Libraries) you have the instructions to import this libraries to our Arduino IDE.
+
+## IDE installed, libraries configured... Let's do some coding!
+
+I suggest you go through [these guides and tutorials](https://www.arduino.cc/en/Guide/HomePage) of the official Arduino page to familiarize you with the environment and can understand well the code I'll show, specially if you're not familiar with C/C++ language (language that we'll use to program our Arduino board).
+
+The program that will load in our Arduino board is quite simple, with two main parts: the `loop` method and `sendToAPI` function. The `loop` method looks like this:
+
+```c
+void loop () {
+  int temp_val = 0;
+  int hum_val = 0;
+  static Dht11 sensor(DHT_DATA_PIN);
+
+  word len = ether.packetReceive();
+  word pos = ether.packetLoop(len);
+
+  // Control when we could execute the next HTTP request
+  if (millis() > timer)
+    switch (sensor.read()) {
+      case Dht11::OK:
+        switch (next) {
+          case 1:
+            // Read humidity level
+            Serial.print("Humidity (%): ");
+            hum_val = sensor.getHumidity();
+            Serial.println(hum_val);
+            if (millis() > timer) {
+              sendToAPI(1, hum_val);
+              timer = millis() + 5000;
+            }
+            next = 2;
+            // Added delay to allow the sensor to obtain measurements correctly
+            delay(2000);
+            break;
+
+          case 2:
+            // Read temperature level
+            Serial.print("Temperature (C): ");
+            temp_val = sensor.getTemperature();
+            Serial.println(temp_val);
+            if (millis() > timer) {
+              sendToAPI(2, temp_val);
+              timer = millis() + 5000;
+            }
+            next = 1;
+            // Added delay to allow the sensor to obtain measurements correctly
+            delay(2000);
+            break;
+        }
+        break;
+
+      // Manage ERROR_CHECKSUM DHT11 error
+      case Dht11::ERROR_CHECKSUM:
+        Serial.println("Checksum error");
+        break;
+
+      // Manage ERROR_TIMEOUT DHT11 error
+      case Dht11::ERROR_TIMEOUT:
+        Serial.println("Timeout error");
+        break;
+
+      default:
+        Serial.println("Unknown error");
+        break;
+    }
+  }
+}
+```
+
+The `loop` method, as its name suggests, is a method that is executed in a loop for as long as the Arduino board is on. As you could see, in this method we constantly read the value of the sensor, controlling the response of it (with the `case` directive), and executes the `sendToAPI` function when possible to send the data to our Rails application. (you could check the official documentation of the DHT11 library in order to better understand every piece of this code [here](http://playground.arduino.cc/main/DHT11Lib)).
+
+The `sendToAPI` function looks like this:
+
+```c
+/*
+* function sendToAPI
+*
+*   int id: ID of the sensor on the final RESTful API application
+*   int value: value of the sensor measure that will be send
+*/
+static void sendToAPI (int id, int value) {
+  byte sd = stash.create();
+
+  // Assign the values to the request params.
+  stash.print("token=");
+  stash.print(TOKEN);
+  stash.print("&value=");
+  stash.print(value);
+  stash.print("&sensor_id=");
+  stash.print(id);
+  stash.save();
+  int stash_size = stash.size();
+
+  // Compose the http POST request, taking the headers below and appending
+  // previously created stash in the sd holder.
+  Stash::prepare(PSTR("POST https://$F$F HTTP/1.0" "\r\n"
+    "Host: $F" "\r\n"
+    "Content-Length: $D" "\r\n"
+    "\r\n"
+    "$H"),
+  website, PSTR("/api/v1/measures"), website, stash_size, sd);
+
+  // Send the packet. This also releases all stash buffers once done.
+  // Save the session ID so we can watch for it in the main loop.
+  session = ether.tcpSend();
+}
+```
+
+This function uses the objects that the `Ethernet` library give us to compose the parameters query, prepare the POST request to our endpoint, and send the information (you could check the official documentation of this library in order to better understand every piece of this code [here](http://jeelabs.net/pub/docs/ethercard/)).
+
+If we put together this two main parts of the code with the rest of the program, we'll have the final code that we're going to upload to our Arduino board:
+
+```c
+#include <EtherCard.h>
+#include "Arduino.h"
+#include "Dht11.h"
+
+// RESTful API token for authentication.
+// Change it to the one you need.
+#define TOKEN  "ac4bd425935c350a54aabb362906283f"
+
+// Ethernet interface mac address, must be unique on the LAN
+byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
+
+// Global variables
+const char website[] PROGMEM = "sensors-admin-panel.herokuapp.com";
+static byte session;
+int next = 1;
+static uint32_t timer;
+enum {
+  DHT_DATA_PIN = 2,
+  SERIAL_BAUD  = 9600,
+  POLL_DELAY   = 2000,
+};
+
+byte Ethernet::buffer[700];
+Stash stash;
+
+/*
+* function sendToAPI
+*
+*   int id: ID of the sensor on the final RESTful API application
+*   int value: value of the sensor measure that will be send
+*/
+static void sendToAPI (int id, int value) {
+  byte sd = stash.create();
+
+  // Assign the values to the request params.
+  stash.print("token=");
+  stash.print(TOKEN);
+  stash.print("&value=");
+  stash.print(value);
+  stash.print("&sensor_id=");
+  stash.print(id);
+  stash.save();
+  int stash_size = stash.size();
+
+  // Compose the http POST request, taking the headers below and appending
+  // previously created stash in the sd holder.
+  Stash::prepare(PSTR("POST https://$F$F HTTP/1.0" "\r\n"
+    "Host: $F" "\r\n"
+    "Content-Length: $D" "\r\n"
+    "\r\n"
+    "$H"),
+  website, PSTR("/api/v1/measures"), website, stash_size, sd);
+
+  // Send the packet. This also releases all stash buffers once done.
+  // Save the session ID so we can watch for it in the main loop.
+  session = ether.tcpSend();
+}
+
+void setup () {
+  // Setup the Ethernet chip
+  Serial.begin(57600);
+  Serial.println("\n[API Client]");
+
+  if (ether.begin(sizeof Ethernet::buffer, mymac) == 0)
+    Serial.println(F("Failed to access Ethernet controller"));
+  if (!ether.dhcpSetup())
+    Serial.println(F("DHCP failed"));
+
+  ether.printIp("IP:  ", ether.myip);
+  ether.printIp("GW:  ", ether.gwip);
+  ether.printIp("DNS: ", ether.dnsip);
+
+  if (!ether.dnsLookup(website))
+    Serial.println(F("DNS failed"));
+
+  ether.printIp("SRV: ", ether.hisip);
+}
+
+void loop () {
+  int temp_val = 0;
+  int hum_val = 0;
+  static Dht11 sensor(DHT_DATA_PIN);
+
+  word len = ether.packetReceive();
+  word pos = ether.packetLoop(len);
+
+  // Control when we could execute the next HTTP request
+  if (millis() > timer)
+    switch (sensor.read()) {
+      case Dht11::OK:
+        switch (next) {
+          case 1:
+            // Read humidity level
+            Serial.print("Humidity (%): ");
+            hum_val = sensor.getHumidity();
+            Serial.println(hum_val);
+            if (millis() > timer) {
+              sendToAPI(1, hum_val);
+              timer = millis() + 5000;
+            }
+            next = 2;
+            // Added delay to allow the sensor to obtain measurements correctly
+            delay(2000);
+            break;
+
+          case 2:
+            // Read temperature level
+            Serial.print("Temperature (C): ");
+            temp_val = sensor.getTemperature();
+            Serial.println(temp_val);
+            if (millis() > timer) {
+              sendToAPI(2, temp_val);
+              timer = millis() + 5000;
+            }
+            next = 1;
+            // Added delay to allow the sensor to obtain measurements correctly
+            delay(2000);
+            break;
+        }
+        break;
+
+      // Manage ERROR_CHECKSUM DHT11 error
+      case Dht11::ERROR_CHECKSUM:
+        Serial.println("Checksum error");
+        break;
+
+      // Manage ERROR_TIMEOUT DHT11 error
+      case Dht11::ERROR_TIMEOUT:
+        Serial.println("Timeout error");
+        break;
+
+      default:
+        Serial.println("Unknown error");
+        break;
+    }
+  }
+}
+```
+
+> **Note:** Tell me in the comments or via message if you need to go into detail on this code if there is anything you don't understand well, I have not done to avoid excessively increasing the post.
+
+Now you could upload this code with the Arduino IDE to your board, plug your Arduino, connect an ethernet cable, and see what's happening on your Rails application. It's alive! Dammit, I feel like MacGyver! Yeah!
+
+![Macgyver](https://media.giphy.com/media/16KdaesKdaAI8/giphy.gif)
+
+## Any place where I can see the result?
+
+Yeah! Here you have the [Admin panel Github repo](https://github.com/dreamingechoes/sensors_admin_panel) and here the [Arduino code](https://github.com/dreamingechoes/arduino_post_values) for this example, so you can clone it, change it, play with it... whatever you want! :)
+
+If you don't want to play with the example repo, here you have a working example mounted on [Heroku](https://sensors-admin-panel.herokuapp.com).
