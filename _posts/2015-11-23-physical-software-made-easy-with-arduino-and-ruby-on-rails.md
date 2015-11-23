@@ -5,15 +5,15 @@ date:   2015-11-23 15:30:00
 categories: arduino ruby rails
 tags: arduino ruby rails development web sensors
 comments: true
-excerpt: "One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!..."
-post_summary: "One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!..."
+excerpt: "One of the fields of computer science that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!..."
+post_summary: "One of the fields of computer science that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!..."
 image:
   feature: header-image.png
   main: /images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/title.png
 url: /arduino/ruby/rails/physical-software-made-easy-with-arduino-and-ruby-on-rails/
 ---
 
-One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!
+One of the fields of computer science that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!
 
 ## So... what's the idea?
 
