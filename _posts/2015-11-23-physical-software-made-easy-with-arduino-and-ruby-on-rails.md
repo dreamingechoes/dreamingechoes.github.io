@@ -15,18 +15,18 @@ url: /arduino/ruby/rails/physical-software-made-easy-with-arduino-and-ruby-on-ra
 
 One of the fields of computer engineering that attracts me the most is the physical software. Another is, as you can see on my page, the web development. So today we will combine both fields to have some fun. Let's go!
 
-## So.. what's the idea?
+## So... what's the idea?
 
-Thinking about combine both fields, the simplest and useful idea that I thought is to develop a kind of cheap system with which you could track the values of all the sensors placed in our house. The challenge is to keep the cost of the system below the 20 euros.
+Thinking about combine both fields, the simplest and useful idea that I thought is to develop a kind of cheap system with which you could track the values of all the sensors placed in our house. The challenge is to keep the cost of the system below the 20€.
 
 Ok, so in order to accomplish the challenge, we'll need some hardware:
 
-* An Arduino board or compatible (around 5 euros on eBay).
-* A protoboard where connect all the components and some wires (easily no more than 5 euros on eBay).
-* An ethernet adaptor for the Arduino board like the one used in this example, the ENC28J60 Ethernet chip (yes, around 5 euros on eBay).
-* Some kind of sensor to get measures of your physical environment like the one used in this example, a DHT11 Temperature and humidity sensor (below 2 euros on eBay).
+* An Arduino board or compatible (around 5€ on eBay).
+* A protoboard where connect all the components and some wires (easily no more than 5€ on eBay).
+* An ethernet adaptor for the Arduino board like the one used in this example, the ENC28J60 Ethernet chip (again, around 5€ on eBay).
+* Some kind of sensor to get measures of your physical environment like the one used in this example, a DHT11 Temperature and humidity sensor (below 2€ on eBay).
 
-So the final cost is around 17/18 euros, under the 20 euros limit. Yeah! Well, we already have the hardware, but we need the software where all the data are going to be stored in order to be able to track all this measures. And what better way to do this than with an application in Ruby on Rails?
+So the final cost is around 17/18€, under the 20€ limit. Yeah! Well, we already have the hardware, but we need the software where all the data are going to be stored in order to be able to track all this measures. And what better way to do this than with an application in Ruby on Rails?
 
 ## Let's build our simple Rails application
 
@@ -45,17 +45,17 @@ For this example, I use the Bootstrap Admin theme SB Admin Base V2 gem that I ma
 <hr>
 *Sensor details view*
 
-If you feel lazy and you don't want to spend the time developing this Rails application, you could check the one I made in his [Github repo](https://github.com/dreamingechoes/sensors_admin_panel).
+If you feel lazy and you don't want to spend the time developing this Rails application, you could check the one I made in this [Github repo](https://github.com/dreamingechoes/sensors_admin_panel).
 
 ## Ok, we have the Rails application, but what about the hardware?
 
-Let's now go to the second part of our system, the hardware. For this example, I use an Arduino Uno board, an ENC28J60 Ethernet chip, and a DHT11 Temperature and humidity sensor to send this measures (temperauture and humidity) to my Rails application. I only use one sensor, but you can attach to the Arduino Board as many sensors as you want.
+Let's now go to the second part of our system, the hardware. For this example, I use an Arduino Uno board, an ENC28J60 Ethernet chip, and a DHT11 Temperature and humidity sensor to send this measures (temperature and humidity) to my Rails application. I only use one sensor, but you can attach to the Arduino Board as many sensors as you want.
 
 Wiring all properly, we'll have something like this:
 
 ![Real Schema](/images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/real_schema.jpg)
 
-Here is the schema made with Fritzing of the example :
+Here is the schema made with Fritzing of the example:
 
 ![Schema](/images/2015-11-23-physical-software-made-easy-with-arduino-and-ruby-on-rails/schema.png)
 
@@ -63,9 +63,9 @@ I will not go into detail about how I wired everything, because it's better to u
 
 ## Arduino, do as I command!
 
-We have to set our Arduino to read the values that the sensor give us, and send them to our RESTful API. For this we will make use of two libraries, one for managing the temperature and humidity sensor, and another to use the ethernet chip. But first of all, let's install the Arduino IDE.
+We have to set our Arduino to read the values that the sensor give us, and send them to our RESTful API. For this we'll make use of two libraries, one for managing the temperature and humidity sensor, and another to use the ethernet chip. But first of all, let's install the Arduino IDE.
 
-Go to [the Arduino download page](https://www.arduino.cc/en/Main/Software) and download and install the Arduino software for your operating system. Once this is done, we'll have to download the libraries that I comment, you can do on these links:
+Go to [the Arduino download page](https://www.arduino.cc/en/Main/Software) and download and install the Arduino software for your operating system. Once this is done, we'll have to download the libraries that I mention before, you can do on these links:
 
 * [Ethercard](https://github.com/jcw/ethercard)
 * [Dht11_Library](https://github.com/adalton/arduino/tree/master/projects/Dht11_Library)
@@ -74,9 +74,9 @@ Go to [the Arduino download page](https://www.arduino.cc/en/Main/Software) and d
 
 ## IDE installed, libraries configured... Let's do some coding!
 
-I suggest you go through [these guides and tutorials](https://www.arduino.cc/en/Guide/HomePage) of the official Arduino page to familiarize you with the environment and can understand well the code I'll show, specially if you're not familiar with C/C++ language (language that we'll use to program our Arduino board).
+I suggest you go through [these guides and tutorials](https://www.arduino.cc/en/Guide/HomePage) of the official Arduino page to familiarize you with the environment and be able to well understand the code I'll show, specially if you're not familiar with C/C++ language (language that we'll use to program our Arduino board).
 
-The program that will load in our Arduino board is quite simple, with two main parts: the `loop` method and `sendToAPI` function. The `loop` method looks like this:
+The program that will load in our Arduino board is quite simple, with two main parts: the `loop` and `sendToAPI` functions. The `loop` function looks like this:
 
 ```c
 void loop () {
@@ -140,7 +140,7 @@ void loop () {
 }
 ```
 
-The `loop` method, as its name suggests, is a method that is executed in a loop for as long as the Arduino board is on. As you could see, in this method we constantly read the value of the sensor, controlling the response of it (with the `case` directive), and executes the `sendToAPI` function when possible to send the data to our Rails application. (you could check the official documentation of the DHT11 library in order to better understand every piece of this code [here](http://playground.arduino.cc/main/DHT11Lib)).
+This function, as its name suggests, is executed in a loop for as long as the Arduino board is on. As you could see, in this function we constantly read the value of the sensor, controlling the response of it (with the `case` directive), and executes the `sendToAPI` function when possible to send the data to our Rails application. (you could check the official documentation of the DHT11 library in order to better understand every piece of this code [here](http://playground.arduino.cc/main/DHT11Lib)).
 
 The `sendToAPI` function looks like this:
 
