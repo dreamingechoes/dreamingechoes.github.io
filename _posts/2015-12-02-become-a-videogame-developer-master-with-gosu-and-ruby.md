@@ -83,8 +83,6 @@ To store all the assets that we'll use in our game (images, sounds, music...), w
 
 We're a great developers, but if art is our weak point, to make the design of the scenarios, characters, etc... of our game, we can go to communities of artists who share their resources to everyone can make use of them, e.g. [http://opengameart.org/](http://opengameart.org/).
 
-![Ruby](/images/2015-12-02-become-a-videogame-developer-master-with-gosu-and-ruby/ruby.gif)
-
 Well, let's explain very quickly the basis of the development with the help of the official Gosu Ruby introduction (you have the complete documentation of Gosu [here](https://github.com/gosu/gosu/wiki) if you want to go deeper).
 
 > Don't worry, as always, at the end of the post I'll put links to the repo with the final code to the game I made so you can see all detail
