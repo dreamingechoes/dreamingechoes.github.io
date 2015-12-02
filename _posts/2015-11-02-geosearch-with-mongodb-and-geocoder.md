@@ -64,7 +64,7 @@ development:
 ...        
 ```
 
-The fields that we'll define for our Shop model are (don't worry, as always, at the end of the post I'll put links to the repo with the final code and to the example mounted on Heroku):
+The fields that we'll define for our Shop model are (don't worry, as always, at the end of the post I'll put links to the repo with the final code to the example mounted on Heroku):
 
 ```ruby
 field :name, type: String
