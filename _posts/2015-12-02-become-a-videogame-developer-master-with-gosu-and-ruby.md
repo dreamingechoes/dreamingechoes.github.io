@@ -85,9 +85,9 @@ We're a great developers, but if art is our weak point, to make the design of th
 
 ![Ruby](/images/2015-12-02-become-a-videogame-developer-master-with-gosu-and-ruby/ruby.gif)
 
-Well, let's explain very quickly the basis of the development with the help of the official Gosu Ruby introduction (you have the complete documentation of Gosu [here](https://github.com/gosu/gosu/wiki) if you want to go deep).
+Well, let's explain very quickly the basis of the development with the help of the official Gosu Ruby introduction (you have the complete documentation of Gosu [here](https://github.com/gosu/gosu/wiki) if you want to go deeper).
 
-> Don't worry, as always, at the end of the post I'll put links to the repo with the final code to the game I made so you can see more complex examples
+> Don't worry, as always, at the end of the post I'll put links to the repo with the final code to the game I made so you can see all detail
 
 Spoiler! The examples shown here are directly extracted of the Gosu wiki. **All the explanations and example codes of the next parts belongs to them.**
 
@@ -117,7 +117,7 @@ window.show
 
 The constructor initializes the `Gosu::Window` base class. The parameters shown here create a `640x480` pixels large window. It also sets the caption of the window, which is displayed in its title bar. You can create a fullscreen window by passing `:fullscreen => true` after the width and height.
 
-`update()` and `draw()` are overrides of `Gosu::Window`'s methods. `update()` is called 60 times per second (by default) and should contain the main game logic: move objects, handle collisions, etc.
+`update()` and `draw()` are overrides of `Gosu::Window`'s methods. `update()` is called 60 times per second (by default) and should contain the main game logic: move objects, handle collisions...
 
 `draw()` is called afterwards and whenever the window needs redrawing for other reasons, and may also be skipped every other time if the FPS go too low. It should contain the code to redraw the whole screen, but no updates to the game's state.
 
@@ -126,7 +126,6 @@ Then follows the main program. We create a window and call its `show()` method, 
 The window loop it's something like this:
 
 ![Game loop](/images/2015-12-02-become-a-videogame-developer-master-with-gosu-and-ruby/game_loop.png)
-
 
 ## Using images
 
@@ -203,7 +202,7 @@ end
 - `Player#accelerate` makes use of the offset_x/offset_y functions. They are similar to what some people use sin/cos for: For example, if something moved 100 pixels at an angle of 30°, it would move a distance of `offset_x(30, 100)` pixels horizontally and `offset_y(30, 100)` pixels vertically.
 - When loading BMP files, Gosu replaces `#ff00ff` with transparent pixels.
 - Note that `draw_rot` puts the center of the image at (x, y) - not the upper left corner as draw does! This can be controlled by the center_x/center_y arguments if you want.
-- The player is drawn at z=1, i.e. over the background (obviously). We'll replace these magic numbers with something better later.
+- The player is drawn at z=1, i.e. over the background.
 
 ## Using our Player class inside Window
 
@@ -266,7 +265,7 @@ class Player
     @score = 0
   end
 
-  ...
+  # Some code here...
 
   def collect_stars(stars)
     stars.reject! do |star|
@@ -284,7 +283,7 @@ end
 
 ## Ok, I get it, but... how should I put all together to develop my game?
 
-After you've tried these examples and have delved a little deeper into the Gosu's documentation, you're ready to code your game. The basic idea is to create a class for any resource you want to have in your game (window, sprite, player, enemy, bullet...). On the main class of the project (in my case, `lib/simplelogica_the_game.rb` file), you have to require all this files, and do something like this:
+After you've tried these simple examples and have delved a little deeper into the Gosu's documentation, you're ready to code your game. The basic idea is to create a class for any resource you want to have in your game (window, sprite, player, enemy, bullet...). On the main class of the project (in my case, `lib/simplelogica_the_game.rb` file), you have to require all this files, and do something like this:
 
 ```ruby
 require "simplelogica_the_game/version"
@@ -338,7 +337,7 @@ Make sure that this last file is executable (`chmod +x bin/simplelogica_the_game
 
 Please, clone my repo and try to play the game so you can see all this pixels in action! :D
 
-I hope you liked the post, and I encourage you to begin with game development and become the new master indie developer (or at least try it with Gosu), but please, while you develop some great game, listen this on background... So many good old memories... Kirby for the win! :_D
+I hope you liked the post, and I encourage you to begin with game development and become the new master indie developer (or at least try it with Gosu), but please, while you develop some great game, listen to this song... So many good old memories... Kirby for the win! :_D
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PG8sbWoBTyc" frameborder="0" allowfullscreen></iframe>
 
