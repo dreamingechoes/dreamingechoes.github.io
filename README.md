@@ -2,4 +2,6 @@
 
 # About
 
-Welcome to my Github page. You could see all the content on [dreamingecho.es](http://dreamingecho.es). I hope you like it! :)
+Welcome to my Github page. You could see all the content on [dreamingecho.es](http://dreamingechoes.github.io). I hope you like it! :)
+
+Note: no longer maintained since I migrated my Web to Ghost.
